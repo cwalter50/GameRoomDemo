@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var roomName: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(spacing: 20) {
+                TextField("Enter Room Name", text: $roomName)
+                    .textFieldStyle(.roundedBorder)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 40)
+                Button("Find Room") {
+                    
+                }
+                Text("OR")
+                Button("Create New Room") {
+                    
+                }
+                Spacer()
+            }
+            .font(.largeTitle)
+            .navigationTitle("Game Room Demo")
         }
         .padding()
     }
