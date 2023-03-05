@@ -21,9 +21,7 @@ struct ContentView: View {
                     
                 }
                 Text("OR")
-                Button("Create New Room") {
-                    
-                }
+                NavigationLink("Create New Room", destination: CreateNewRoomView())
                 Spacer()
             }
             .font(.largeTitle)

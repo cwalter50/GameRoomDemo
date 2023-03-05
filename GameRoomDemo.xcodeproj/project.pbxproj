@@ -18,6 +18,8 @@
 		3802AEC129B4E736006324DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3802AEC029B4E736006324DC /* FirebaseFirestore */; };
 		3802AEC329B4E736006324DC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3802AEC229B4E736006324DC /* FirebaseStorage */; };
 		3802AEC529B4EA0C006324DC /* CreateNewRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AEC429B4EA0C006324DC /* CreateNewRoomView.swift */; };
+		3802AEC729B50A31006324DC /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AEC629B50A31006324DC /* WaitingRoomView.swift */; };
+		3802AEC929B50B3B006324DC /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AEC829B50B3B006324DC /* Room.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3802AEAE29B4E22B006324DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3802AEB729B4E63B006324DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3802AEC429B4EA0C006324DC /* CreateNewRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewRoomView.swift; sourceTree = "<group>"; };
+		3802AEC629B50A31006324DC /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
+		3802AEC829B50B3B006324DC /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 			children = (
 				3802AEA729B4E22A006324DC /* GameRoomDemoApp.swift */,
 				3802AEC429B4EA0C006324DC /* CreateNewRoomView.swift */,
+				3802AEC829B50B3B006324DC /* Room.swift */,
+				3802AEC629B50A31006324DC /* WaitingRoomView.swift */,
 				3802AEA929B4E22A006324DC /* ContentView.swift */,
 				3802AEAB29B4E22B006324DC /* Assets.xcassets */,
 				3802AEB729B4E63B006324DC /* GoogleService-Info.plist */,
@@ -167,6 +173,8 @@
 				3802AEAA29B4E22A006324DC /* ContentView.swift in Sources */,
 				3802AEC529B4EA0C006324DC /* CreateNewRoomView.swift in Sources */,
 				3802AEA829B4E22A006324DC /* GameRoomDemoApp.swift in Sources */,
+				3802AEC729B50A31006324DC /* WaitingRoomView.swift in Sources */,
+				3802AEC929B50B3B006324DC /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

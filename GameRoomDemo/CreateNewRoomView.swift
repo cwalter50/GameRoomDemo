@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct CreateNewRoomView: View {
     @State var roomName: String = ""
@@ -59,12 +60,26 @@ struct CreateNewRoomView: View {
         }
         .padding()
         .font(.title)
+        .navigationTitle("Create New Room")
         
     }
     
+    // Add Method to save new room to Firebase!!!
     func startRoom()
     {
         
+        let theData: [String: Any] = ["roomName": self.roomName, "roomCode": self.roomCode, "created": Double(Date().timeIntervalSince1970)]
+        let db = Firestore.firestore()
+        db.collection("rooms").document("\(roomCode)").setData(theData) { error in
+            if let err = error
+            {
+                print("Error in saving data: \(err)")
+            }
+            else {
+                print("Sucessfully saved data")
+            }
+            
+        }
     }
     
     func getNewRoomCode()
@@ -77,6 +92,9 @@ struct CreateNewRoomView: View {
 
 struct CreateNewRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNewRoomView()
+        NavigationView {
+            CreateNewRoomView()
+        }
+        
     }
 }
