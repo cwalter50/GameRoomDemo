@@ -20,4 +20,9 @@ class Player: ObservableObject, Identifiable
         self.name = name
         self.created = created
     }
+    
+    func toDictionaryValues() -> [String: Any]
+    {
+        return ["id": self.id, "name": self.name, "created": self.created]
+    }
 }

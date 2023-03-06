@@ -44,6 +44,7 @@ struct CreateNewRoomView: View {
                     Image(systemName: "arrow.clockwise")
                 }
             }
+            NavigationLink(destination: SignInView(room: room), isActive: $isRoomCreated) { EmptyView() }
 
             Button("Create Room")
             {
@@ -57,9 +58,6 @@ struct CreateNewRoomView: View {
         .padding()
         .font(.title)
         .navigationTitle("Create New Room")
-        .navigationDestination(isPresented: $isRoomCreated, destination: {
-                SignInView(room: room)
-            })
         
     }
     
@@ -78,7 +76,7 @@ struct CreateNewRoomView: View {
             }
             else {
                 print("Sucessfully saved data")
-//                isRoomCreated.toggle() // this will trigger the navigationLink to go to SignInView
+                isRoomCreated.toggle() // this will trigger the navigationLink to go to SignInView
             }
             
         }
