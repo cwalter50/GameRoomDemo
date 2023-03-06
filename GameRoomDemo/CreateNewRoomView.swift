@@ -13,7 +13,8 @@ struct CreateNewRoomView: View {
     
     @State var roomCode: String
     
-    @State var userName: String = ""
+    @State var room: Room = Room()
+    @State var isRoomCreated = false
     
     init()
     {
@@ -29,7 +30,7 @@ struct CreateNewRoomView: View {
                 TextField("Enter Room Name", text: $roomName)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.trailing)
-                    .font(.headline)
+                    .font(.title2)
             }
             HStack {
                 Text("Room Code: ")
@@ -43,32 +44,32 @@ struct CreateNewRoomView: View {
                     Image(systemName: "arrow.clockwise")
                 }
             }
-            HStack {
-                Text("Your Name: ")
-                TextField("Enter Your Name", text: $userName)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.trailing)
-                    .font(.headline)
-            }
-            Button("Start Room")
+
+            Button("Create Room")
             {
-                startRoom()
+                createRoom()
+                isRoomCreated.toggle() // this will trigger the navigationLink to go to SignInView
             }
-            .disabled(roomName == "" || userName == "")
+            .disabled(roomName == "")
             Spacer()
-            
+
         }
         .padding()
         .font(.title)
         .navigationTitle("Create New Room")
+        .navigationDestination(isPresented: $isRoomCreated, destination: {
+                SignInView(room: room)
+            })
         
     }
     
     // Add Method to save new room to Firebase!!!
-    func startRoom()
+    func createRoom()
     {
+        room = Room(id: self.roomCode, roomName: self.roomName, created: Double(Date().timeIntervalSince1970))
         
-        let theData: [String: Any] = ["roomName": self.roomName, "roomCode": self.roomCode, "created": Double(Date().timeIntervalSince1970)]
+        let theData = room.toDictionaryValues()
+        
         let db = Firestore.firestore()
         db.collection("rooms").document("\(roomCode)").setData(theData) { error in
             if let err = error
@@ -77,6 +78,7 @@ struct CreateNewRoomView: View {
             }
             else {
                 print("Sucessfully saved data")
+//                isRoomCreated.toggle() // this will trigger the navigationLink to go to SignInView
             }
             
         }

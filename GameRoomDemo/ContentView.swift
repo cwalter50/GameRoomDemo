@@ -8,26 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var roomName: String = ""
+    @State var roomCode: String = ""
+    
+    let deviceID =                     UIDevice.current.identifierForVendor?.uuidString ?? "No  Device ID Found"
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                TextField("Enter Room Name", text: $roomName)
-                    .textFieldStyle(.roundedBorder)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 40)
-                Button("Find Room") {
-                    
+                HStack(alignment: .lastTextBaseline) {
+                    TextField("Enter Room Code", text: $roomCode)
+                        .textFieldStyle(.roundedBorder)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, 40)
+                        .textInputAutocapitalization(.characters)
+                        .autocorrectionDisabled()
+                    Button("Find Room") {
+                        print(deviceID)
+                    }
                 }
+                .font(.title2)
+                
                 Text("OR")
                 NavigationLink("Create New Room", destination: CreateNewRoomView())
                 Spacer()
             }
             .font(.largeTitle)
             .navigationTitle("Game Room Demo")
+            
         }
         .padding()
+        
+
     }
 }
 

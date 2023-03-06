@@ -17,6 +17,8 @@ struct WaitingRoomView: View {
     {
         self.roomCode = roomCode
         // load room from roomCode
+        
+        
         self.room = Room()
     }
     var body: some View {
