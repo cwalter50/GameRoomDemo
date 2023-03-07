@@ -49,7 +49,6 @@ struct CreateNewRoomView: View {
             Button("Create Room")
             {
                 createRoom()
-                isRoomCreated.toggle() // this will trigger the navigationLink to go to SignInView
             }
             .disabled(roomName == "")
             Spacer()
