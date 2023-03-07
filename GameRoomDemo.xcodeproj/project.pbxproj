@@ -75,12 +75,12 @@
 		3802AEA629B4E22A006324DC /* GameRoomDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3802AECC29B52F38006324DC /* Model */,
 				3802AEA729B4E22A006324DC /* GameRoomDemoApp.swift */,
+				3802AEA929B4E22A006324DC /* ContentView.swift */,
 				3802AEC429B4EA0C006324DC /* CreateNewRoomView.swift */,
 				3802AECD29B54B5A006324DC /* SignInView.swift */,
 				3802AEC629B50A31006324DC /* WaitingRoomView.swift */,
-				3802AEA929B4E22A006324DC /* ContentView.swift */,
+				3802AECC29B52F38006324DC /* Model */,
 				3802AEAB29B4E22B006324DC /* Assets.xcassets */,
 				3802AEB729B4E63B006324DC /* GoogleService-Info.plist */,
 				3802AEAD29B4E22B006324DC /* Preview Content */,
