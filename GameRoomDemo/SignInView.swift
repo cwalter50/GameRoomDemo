@@ -42,7 +42,7 @@ struct SignInView: View {
             .disabled(playerName == "")
             
             Spacer()
-            NavigationLink(destination: WaitingRoomView(roomCode: room.id), isActive: $isPlayerSaved) { EmptyView() }
+            NavigationLink(destination: WaitingRoomView(room: self.room), isActive: $isPlayerSaved) { EmptyView() }
         }
         .padding()
         

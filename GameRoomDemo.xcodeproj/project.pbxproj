@@ -22,6 +22,7 @@
 		3802AEC929B50B3B006324DC /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AEC829B50B3B006324DC /* Room.swift */; };
 		3802AECB29B52E94006324DC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AECA29B52E94006324DC /* Player.swift */; };
 		3802AECE29B54B5A006324DC /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AECD29B54B5A006324DC /* SignInView.swift */; };
+		3802AED429B7AEC1006324DC /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802AED329B7AEC1006324DC /* DeveloperPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3802AEC829B50B3B006324DC /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		3802AECA29B52E94006324DC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3802AECD29B54B5A006324DC /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		3802AED329B7AEC1006324DC /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				3802AECA29B52E94006324DC /* Player.swift */,
 				3802AEC829B50B3B006324DC /* Room.swift */,
+				3802AED329B7AEC1006324DC /* DeveloperPreview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3802AEAA29B4E22A006324DC /* ContentView.swift in Sources */,
+				3802AED429B7AEC1006324DC /* DeveloperPreview.swift in Sources */,
 				3802AECE29B54B5A006324DC /* SignInView.swift in Sources */,
 				3802AEC529B4EA0C006324DC /* CreateNewRoomView.swift in Sources */,
 				3802AEA829B4E22A006324DC /* GameRoomDemoApp.swift in Sources */,
