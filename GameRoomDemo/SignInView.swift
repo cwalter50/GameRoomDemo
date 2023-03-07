@@ -32,7 +32,7 @@ struct SignInView: View {
                 TextField("Enter Your Name", text: $playerName)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.trailing)
-                    .font(.title2)
+                    .font(.body)
             }
             Button("Join Room")
             {

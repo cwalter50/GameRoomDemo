@@ -21,23 +21,50 @@ struct WaitingRoomView: View {
     
     var body: some View {
         VStack {
-            List
-            {
-                ForEach(room.players) { player in
-                    HStack {
-                        Text("\(player.name)")
-                        Text("\(player.id)")
-                    }
+            HStack {
+                Text("Room Name:")
+                Spacer()
+                Text(room.roomName)
+                    .fontWeight(.bold)
                     
-                }
             }
-            .listStyle(.plain)
-            
-            
+            .font(.title)
+            HStack {
+                Text("Room Code:")
+                Spacer()
+                Text(room.id)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.green)
+            }
+            .font(.title)
+            VStack {
+                Text("PLAYERS")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Divider()
+                List
+                {
+                    ForEach(room.players) { player in
+                        HStack {
+                            Text("\(player.name)")
+                            Text("\(player.id)")
+                        }
+                    }
+                }
+                .listStyle(.plain)
+            }
+            .padding(.top, 20)
         }
         .navigationTitle("Waiting Room")
         .padding()
         .onAppear(perform: fetchPlayersFromFirebase)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Play") {
+                    // ToDo: Figure out What game to play. and how to play it...
+                }.font(.title)
+            }
+        }
         
     }
     
@@ -47,26 +74,24 @@ struct WaitingRoomView: View {
     {
         let db = Firestore.firestore()
         
-    db.collection("rooms").document("\(self.roomCode)").collection("players").addSnapshotListener { (querySnapshot, error) in
+        db.collection("rooms").document("\(self.roomCode)").collection("players").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("no players")
                 return
-        }
-            print(documents)
-        for doc in documents {
-            let data = doc.data()
-            let name = data["name"] as? String ?? "No Name"
-            let id = data["id"] as? String ?? "No ID FOUND"
-            let created = data["created"] as? Double ?? Double(Date().timeIntervalSince1970)
+            }
+
+            self.room.players.removeAll() // this will remove duplicates
+            for doc in documents {
+                let data = doc.data()
+                let name = data["name"] as? String ?? "No Name"
+                let id = data["id"] as? String ?? "No ID FOUND"
+                let created = data["created"] as? Double ?? Double(Date().timeIntervalSince1970)
+
+                let player = Player(id: id, name: name, created: created)
+                self.room.players.append(player)
+                print("Found player: \(player.name) \(player.id)")
+            }
             
-            let player = Player(id: id, name: name, created: created)
-            self.room.players.append(player)
-            print("Found player: \(player.name) \(player.id)")
-        }
-            
-            
-//                        self.room.players = documents.map { queryDocumentSnapshot -> Player in
-//                        return Player(document: queryDocumentSnapshot)
         }
     }
     

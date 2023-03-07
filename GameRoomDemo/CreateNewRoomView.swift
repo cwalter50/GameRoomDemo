@@ -30,7 +30,7 @@ struct CreateNewRoomView: View {
                 TextField("Enter Room Name", text: $roomName)
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.trailing)
-                    .font(.title2)
+                    .font(.body)
             }
             HStack {
                 Text("Room Code: ")
